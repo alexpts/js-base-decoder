@@ -5,6 +5,9 @@ filter:
 checks:
   javascript: true
 
+tools:
+  external_code_coverage: false
+
 build:
   nodes:
     coverage:
