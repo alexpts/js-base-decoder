@@ -1,0 +1,16 @@
+filter:
+  paths:
+    - 'src/*'
+
+checks:
+  javascript: true
+
+build:
+  nodes:
+    coverage:
+      tests:
+        override:
+          - command: npm test
+            coverage:
+              file: tests/coverage/clover.xml
+              format: clover
