@@ -32,7 +32,7 @@ yarn add js-base-decoder
 
 ```javascript
 let BaseDecoder = require('js-base-decoder');
-let decoder = new BaseDecoder;
+let decoder = new BaseDecoder; // default base62 [0-1a-zA-Z]
 
 decoder.encode(1563211298668);  // "rwjxiKo"
 decoder.decode("rwjxiKo"); // 1563211298668
