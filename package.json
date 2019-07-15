@@ -13,7 +13,8 @@
   "keywords": [
     "decode",
     "convert",
-    "strval"
+    "strval",
+    "base-62"
   ],
   "author": "",
   "license": "MIT",

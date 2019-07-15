@@ -20,3 +20,9 @@ test('encode base62+ru62 + shift', () => {
     let decoder = new Decoder(extendChars, -1563211200000);
     expect(decoder.encode(1563211298668)).toBe('6Pы');
 });
+
+
+test('encode base16', () => {
+    let decoder = new Decoder('0123456789abcdef');
+    expect(decoder.encode(1563211298668)).toBe('16bf6a7776c');
+});
