@@ -1,0 +1,38 @@
+{
+  "name": "js-base-decoder",
+  "version": "1.0.0",
+  "description": "Convert number to string and back",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest tests/tests"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alexpts/js-base-decoder.git"
+  },
+  "keywords": [
+    "decode",
+    "convert",
+    "strval"
+  ],
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/alexpts/js-base-decoder/issues"
+  },
+  "homepage": "https://github.com/alexpts/js-base-decoder#readme",
+  "devDependencies": {
+    "jest": "^24.8.0"
+  },
+
+  "jest": {
+    "cacheDirectory": "tests/cache",
+    "collectCoverage": true,
+    "collectCoverageFrom": [
+      "src/**"
+    ],
+    "coverageDirectory": "tests/coverage",
+    "maxConcurrency": 5,
+    "notify": true
+  }
+}
