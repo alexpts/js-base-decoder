@@ -1,5 +1,5 @@
 {
-  "name": "js-base-decoder",
+  "name": "base-decoder",
   "version": "0.0.1",
   "description": "Convert number to string and back",
   "main": "index.js",
