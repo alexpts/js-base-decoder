@@ -1,4 +1,4 @@
-let Decoder = require('../../src');
+let Decoder = require('../../index');
 let extendChars = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZабвгдежзиклмнопрстуфхцчшщъыьэюяАБВГДЕЖЗИКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ';
 
 test('encode base62', () => {
