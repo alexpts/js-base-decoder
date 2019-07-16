@@ -1,7 +1,7 @@
 {
   "name": "base-decoder",
   "version": "0.0.2",
-  "description": "Convert number to string and back",
+  "description": "Fast base encoding/decoding of any given alphabet. Convert number to string and back",
   "main": "index.js",
   "scripts": {
     "test": "jest tests/tests"
@@ -12,9 +12,13 @@
   },
   "keywords": [
     "decode",
+    "encode",
     "convert",
     "strval",
-    "base-62"
+    "base-62",
+    "base-64",
+    "base-x",
+    "base"
   ],
   "author": "",
   "license": "MIT",
