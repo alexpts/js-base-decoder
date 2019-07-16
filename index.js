@@ -17,8 +17,13 @@ module.exports = class BaseDecoder {
 
     encode(number) {
         number = this.withShift(number, 1);
+        if (number === 0) {
+            return this.charsets[0];
+        }
 
-        let string = number === 0 ? this.charsets[0] : '';
+        let string = number < 0 ? '-' : '';
+        number = Math.abs(number);
+
         while (number > 0) {
             string = this.charsets[number % this.count] + string;
             number = Math.floor(number / this.count);
@@ -29,15 +34,17 @@ module.exports = class BaseDecoder {
 
     decode(string) {
         let result = 0;
-        let length = string.length;
         let i;
+        let length = string.length;
+        let isNegative = string[length-1] === '-';
+        isNegative && length--;
 
         for (i = 0; i < length; i++) {
             let number = this.map.get(string[i]);
-            result += number * Math.pow(this.count, length - i - 1);
+            result += number ? number * Math.pow(this.count, length - i - 1) : 0;
         }
 
-        return this.withShift(Number(result), -1);
+        return this.withShift(isNegative ? -result : result, -1);
     }
 
     static charsetsMap(charsets) {

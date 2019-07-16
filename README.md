@@ -60,3 +60,13 @@ let decoder = new BaseDecoder(null, shiftValue); // base62 + shift
 decoder.encode(1563211298668);  // "pFq"
 decoder.decode("pFq"); // 1563211298668
 ```
+
+Decoder supports negative number:
+
+```javascript
+let BaseDecoder = require('base-decoder');
+let decoder = new BaseDecoder;
+
+decoder.encode(-1000);  // "g8-"
+decoder.decode("g8-"); // -1000
+```
