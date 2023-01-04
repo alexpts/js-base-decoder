@@ -1,20 +1,29 @@
 module.exports = class BaseDecoder {
     /**
-     * @param {String|undefined} charsets
-     * @param {Number} shift
+     * @param {String} charsets
+     * @param {Number} shift - example start time for timestamp
      */
-    constructor(charsets = undefined, shift = 0) {
+    constructor(charsets = '', shift = 0) {
         charsets = charsets || '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
         this.charsets = charsets.split('');
         this.map = BaseDecoder.charsetsMap(this.charsets);
-        this.count = charsets.split('').length;
+        this.count = this.charsets.length;
         this.shift = shift;
     }
 
+    /**
+     * @param {number} number
+     * @param {number} direction
+     * @returns {number}
+     */
     withShift(number, direction = 1) {
         return this.shift ? number + direction * this.shift : number;
     }
 
+    /**
+     * @param {number} number
+     * @returns {string}
+     */
     encode(number) {
         number = this.withShift(number, 1);
         if (number === 0) {
@@ -32,14 +41,17 @@ module.exports = class BaseDecoder {
         return string;
     }
 
+    /**
+     * @param {string} string
+     * @returns {number}
+     */
     decode(string) {
         let result = 0;
-        let i;
         let length = string.length;
         let isNegative = string[length-1] === '-';
         isNegative && length--;
 
-        for (i = 0; i < length; i++) {
+        for (let i = 0; i < length; i++) {
             let number = this.map.get(string[i]);
             result += number ? number * Math.pow(this.count, length - i - 1) : 0;
         }
@@ -47,12 +59,13 @@ module.exports = class BaseDecoder {
         return this.withShift(isNegative ? -result : result, -1);
     }
 
+    /**
+     * @param {Array<string>} charsets
+     * @returns {Map<string, number>}
+     */
     static charsetsMap(charsets) {
-        let map = new Map;
-        charsets.map((char, i) => {
-            map.set(char, i);
-        });
-
+        const map = new Map();
+        charsets.map(map.set.bind(map));
         return map;
     };
 };
