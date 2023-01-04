@@ -4,7 +4,7 @@
   "description": "Fast base encoding/decoding of any given alphabet. Convert number to string and back",
   "main": "index.js",
   "scripts": {
-    "test": "jest tests/tests"
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -29,14 +29,7 @@
   "devDependencies": {
     "jest": "^29.3.1"
   },
-  "jest": {
-    "cacheDirectory": "tests/cache",
-    "collectCoverage": true,
-    "collectCoverageFrom": [
-      "src/**"
-    ],
-    "coverageDirectory": "tests/coverage",
-    "maxConcurrency": 5,
-    "clearMocks": true
+  "engines": {
+    "node": ">= 14"
   }
 }

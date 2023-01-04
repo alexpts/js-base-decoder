@@ -1,0 +1,6 @@
+.github
+.idea
+node_modules/
+.scrutinizer.yml
+jest.config.js
+tests/
