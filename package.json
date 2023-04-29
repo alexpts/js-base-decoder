@@ -1,6 +1,6 @@
 {
   "name": "base-decoder",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "Fast base encoding/decoding of any given alphabet. Convert number to string and back",
   "main": "index.js",
   "scripts": {
